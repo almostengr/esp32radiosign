@@ -9,3 +9,6 @@ switches the corresponding relays to display the color.
 
 Since this is for a Christmas light show, only a few colors that are related to Christmas have been 
 entered so that they can be selected.
+
+For more information about the Christmas Light Show, you can visit the project page on 
+[my website](https://thealmostengineer.com/projects/christmas-light-show).
