@@ -1,6 +1,6 @@
-const int BLUE_RELAY = 2;
-const int GREEN_RELAY = 1;
-const int RED_RELAY = 0;
+const int BLUE_RELAY = 21;
+const int GREEN_RELAY = 19;
+const int RED_RELAY = 18;
 
 const int ON = 1;
 const int OFF = 0;
@@ -12,11 +12,6 @@ enum COLOR
     WHITE
 };
 
-int randomTime()
-{
-    return random(2, 60) * 1000;
-}
-
 void displayColor(int red, int green, int blue)
 {
     digitalWrite(RED_RELAY, red);
@@ -24,19 +19,14 @@ void displayColor(int red, int green, int blue)
     digitalWrite(BLUE_RELAY, blue);
 }
 
-unsigned long previousTime = 0;
-int delayTime = randomTime();
-COLOR color = WHITE;
-
 void setup()
 {
     pinMode(RED_RELAY, OUTPUT);
     pinMode(GREEN_RELAY, OUTPUT);
     pinMode(BLUE_RELAY, OUTPUT);
-}
 
-void loop()
-{
+    COLOR color = (COLOR)random(0, 3);
+
     switch (color)
     {
     case RED:
@@ -51,10 +41,8 @@ void loop()
         displayColor(ON, ON, ON);
         break;
     }
+}
 
-    if (millis() - previousTime >= delayTime)
-    {
-        color = (COLOR)random(0, 3);
-        previousTime = millis();
-    }
+void loop()
+{
 }
